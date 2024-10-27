@@ -1,18 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:my_gp/Account.dart';
+import 'package:my_gp/Explore.dart';
+import 'package:my_gp/Offers.dart';
+import 'package:my_gp/Services.dart';
+import 'package:my_gp/appbar/HomeScreen.dart';
 import 'package:my_gp/appbar/leadingWeidget.dart';
 import 'package:my_gp/appbar/title_weidget.dart';
-import 'package:my_gp/carousel_slider.dart';
-import 'package:my_gp/search_bar.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return const HomeScreen();
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  final List<Widget> _pages = [
+    const Homescreen(),
+    const Offers(),
+    const Explore(),
+    const Services(),
+    const Account(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
-        leadingWidth: 90,
+        toolbarHeight: 80,
+        leadingWidth: 85,
         title: const TitleWeidget(),
         leading: const Leadingweidget(),
         actions: const [
@@ -35,20 +68,33 @@ class Homepage extends StatelessWidget {
 
       //Body
 
-      body: const Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, bottom: 20),
-        child: Column(
-          children: [
-            //Search bar
-            SearchField(),
-            SizedBox(
-              height: 30,
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: _onItemTapped,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
             ),
-            // Carousel
-            Carousel(),
-          ],
-        ),
-      ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.gif_box),
+              label: 'Offers',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.gif_box),
+              label: 'Explore',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.gif_box),
+              label: 'Services',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.gif_box),
+              label: 'Account',
+            ),
+          ]),
+      // BottomNavigationBar
     );
   }
 }

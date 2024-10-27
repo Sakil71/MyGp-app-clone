@@ -8,7 +8,7 @@ class Leadingweidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10.0),
       child: Container(
-        margin: const EdgeInsets.only(top: 32, bottom: 32),
+        margin: const EdgeInsets.only(top: 20, bottom: 20),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [
