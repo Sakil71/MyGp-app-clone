@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_gp/balance_page.dart';
 import 'package:my_gp/carousel_slider.dart';
+import 'package:my_gp/payment_method.dart';
+import 'package:my_gp/recharge.dart';
 import 'package:my_gp/search_bar.dart';
 
 class Homescreen extends StatelessWidget {
@@ -24,19 +26,15 @@ class Homescreen extends StatelessWidget {
               height: 30,
             ),
             BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
-            BalancePage(),
+            SizedBox(
+              height: 10,
+            ),
+
+            Recharge(),
+            SizedBox(
+              height: 20,
+            ),
+            PaymentMethod(),
           ],
         ),
       ),

@@ -29,7 +29,7 @@ class Carousel extends StatelessWidget {
                 ))
             .toList(),
         options: CarouselOptions(
-          height: 200,
+          height: 170,
           autoPlay: true,
           autoPlayAnimationDuration: const Duration(seconds: 1),
           viewportFraction: 1,
